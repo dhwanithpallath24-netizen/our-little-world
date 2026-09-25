@@ -175,7 +175,7 @@ const messages = {
         "I could sacrifice everything for you but it'll still feel like I didn't lose anything as long as I have you",
 
     "029":
-        "I already won the biggest jackpot of my life meeting you, you are my everything everyone all at once",
+        "Your voice is so sweet beautiful and calming, I squeel with joy whenever i get one AND OMG I LOVE THE THIS REMINDS ME VMS SM",
 
     "030":
         "I already won the biggest jackpot of my life meeting you, you are my everything everyone all at once",
