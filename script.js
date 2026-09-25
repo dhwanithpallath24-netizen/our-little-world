@@ -1,4 +1,3 @@
-```javascript
 /* =========================================
    NAME SCREEN
 ========================================= */
@@ -602,56 +601,3 @@ openButton.addEventListener(
 
     }
 );
-
-
-/* =========================================
-   🎵 MUSIC PLAYER
-========================================= */
-
-const musicButton = document.getElementById("music-button");
-const music = document.getElementById("background-music");
-
-if (musicButton && music) {
-
-    musicButton.addEventListener("click", function () {
-
-        if (music.paused) {
-
-            music.play()
-                .then(function () {
-
-                    musicButton.textContent = "Ⅱ";
-
-                    console.log("MUSIC PLAYING!");
-
-                })
-                .catch(function (error) {
-
-                    console.error("MUSIC ERROR:", error);
-
-                    alert(
-                        "Music failed to play.\n\n" +
-                        "Error: " + error.message
-                    );
-
-                });
-
-        } else {
-
-            music.pause();
-
-            musicButton.textContent = "♫";
-
-            console.log("MUSIC PAUSED!");
-
-        }
-
-    });
-
-} else {
-
-    console.error(
-        "Music button or audio element was NOT found."
-    );
-
-}
