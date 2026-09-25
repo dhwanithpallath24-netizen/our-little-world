@@ -1,11 +1,4 @@
 /* =========================================
-   GOOGLE FONTS
-========================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
-
-
-/* =========================================
    GENERAL
 ========================================= */
 
@@ -31,7 +24,7 @@ body {
 
 
 /* =========================================
-   DREAMY BACKGROUND
+   BACKGROUND
 ========================================= */
 
 .background {
@@ -46,8 +39,6 @@ body {
 }
 
 
-/* Floating hearts */
-
 .floating-heart {
     position: absolute;
 
@@ -55,8 +46,7 @@ body {
 
     font-size: 45px;
 
-    animation:
-        floatHeart 8s ease-in-out infinite;
+    animation: floatHeart 8s ease-in-out infinite;
 }
 
 .floating-heart:nth-child(1) {
@@ -96,7 +86,9 @@ body {
 }
 
 
-/* Sparkles */
+/* =========================================
+   SPARKLES
+========================================= */
 
 .sparkle {
     position: absolute;
@@ -105,8 +97,7 @@ body {
 
     font-size: 25px;
 
-    animation:
-        sparkle 3s ease-in-out infinite;
+    animation: sparkle 3s ease-in-out infinite;
 }
 
 .sparkle:nth-child(4) {
@@ -171,8 +162,7 @@ body {
 
     opacity: 0;
 
-    transition:
-        opacity 0.4s ease;
+    transition: opacity 0.4s ease;
 }
 
 .screen.active {
@@ -193,17 +183,14 @@ body {
 
     text-align: center;
 
-    background: rgba(255, 250, 252, 0.82);
+    background: #fffafc;
 
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid #f1d5df;
 
     border-radius: 30px;
 
     box-shadow:
-        0 20px 60px rgba(160, 90, 120, 0.15),
-        inset 0 0 30px rgba(255, 255, 255, 0.5);
-
-    backdrop-filter: blur(15px);
+        0 20px 60px rgba(160, 90, 120, 0.15);
 
     animation: cardAppear 0.8s ease;
 }
@@ -235,6 +222,7 @@ body {
 
     font-size: 28px;
 }
+
 
 .heart-icon {
     margin: 15px 0;
@@ -276,17 +264,20 @@ h1 {
     line-height: 1.05;
 }
 
+
 .subtitle {
     color: #a67888;
 
     font-size: 15px;
 }
 
+
 .instruction {
     color: #a67888;
 
     font-size: 14px;
 }
+
 
 label {
     display: block;
@@ -315,6 +306,7 @@ label {
     margin: 20px 0;
 }
 
+
 .divider::before,
 .divider::after {
     content: "";
@@ -325,13 +317,14 @@ label {
     background: #e9b4c7;
 }
 
+
 .divider span {
     color: #d87599;
 }
 
 
 /* =========================================
-   INPUTS
+   INPUT
 ========================================= */
 
 input {
@@ -345,7 +338,7 @@ input {
 
     outline: none;
 
-    background: rgba(255, 255, 255, 0.75);
+    background: #ffffff;
 
     color: #805064;
 
@@ -353,9 +346,9 @@ input {
 
     text-align: center;
 
-    transition:
-        0.3s ease;
+    transition: 0.3s ease;
 }
+
 
 input:focus {
     border-color: #d87599;
@@ -363,6 +356,7 @@ input:focus {
     box-shadow:
         0 0 0 4px rgba(216, 117, 153, 0.12);
 }
+
 
 input::placeholder {
     color: #c59aaa;
@@ -380,6 +374,7 @@ button {
 
     font-family: "Quicksand", sans-serif;
 }
+
 
 #enter-button,
 #open-button {
@@ -407,6 +402,7 @@ button {
         box-shadow 0.2s ease;
 }
 
+
 #enter-button:hover,
 #open-button:hover {
     transform: translateY(-2px);
@@ -414,6 +410,7 @@ button {
     box-shadow:
         0 12px 25px rgba(216, 117, 153, 0.35);
 }
+
 
 #enter-button:active,
 #open-button:active {
@@ -439,7 +436,7 @@ button {
 
 
 /* =========================================
-   MESSAGE SCREEN
+   💌 MESSAGE / NOTE
 ========================================= */
 
 #message-screen {
@@ -447,257 +444,154 @@ button {
 }
 
 
-/* =========================================
-   💌 ENVELOPE WRAPPER
-========================================= */
+.message-card {
+    position: relative;
 
-.envelope-wrapper {
+    width: min(90%, 600px);
+
+    min-height: 350px;
+
+    padding: 45px 40px;
 
     display: flex;
 
     flex-direction: column;
 
     align-items: center;
+
     justify-content: center;
 
-    width: 100%;
+    text-align: center;
 
-    min-height: 100vh;
-
-    perspective: 1200px;
-}
-
-
-/* =========================================
-   💌 ENVELOPE
-========================================= */
-
-.envelope {
-
-    position: relative;
-
-    width: 360px;
-    height: 240px;
-
-    margin-bottom: 45px;
-
-    transform-style: preserve-3d;
-
-    filter:
-        drop-shadow(
-            0 18px 25px
-            rgba(150, 80, 110, 0.18)
-        );
-}
-
-
-/* Envelope back */
-
-.envelope-back {
-
-    position: absolute;
-
-    inset: 0;
-
-    background: #fff8fb;
-
-    border: 2px solid #edc1d1;
-
-    border-radius: 10px;
-
-    z-index: 1;
-}
-
-
-/* =========================================
-   💌 LETTER
-========================================= */
-
-.letter {
-
-    position: absolute;
-
-    left: 20px;
-    right: 20px;
-
-    bottom: 10px;
-
-    height: 215px;
-
+    /* SOLID NOTE */
     background: #fffdfb;
 
-    border: 1px solid #eadce1;
+    border: 2px solid #edc5d4;
 
-    border-radius: 7px;
+    border-radius: 18px;
 
-    z-index: 2;
+    box-shadow:
+        0 20px 50px rgba(150, 80, 110, 0.20);
 
-    transform:
-        translateY(0);
-
-    transition:
-        transform 1.1s
+    animation:
+        noteAppear 0.8s
         cubic-bezier(.2, .8, .2, 1);
-
-    box-shadow:
-        0 8px 20px
-        rgba(150, 80, 110, 0.18);
 }
 
 
-/* Letter content */
-
-.letter-content {
-
-    padding: 25px;
-
-    text-align: center;
-}
-
-
-/* =========================================
-   💌 ENVELOPE FRONT
-========================================= */
-
-.envelope-front {
+.message-card::before {
+    content: "";
 
     position: absolute;
 
-    left: 0;
-    right: 0;
+    inset: 8px;
 
-    bottom: 0;
+    border: 1px solid #f2dbe3;
 
-    height: 60%;
+    border-radius: 12px;
 
-    background: #f3c7d7;
+    pointer-events: none;
+}
 
-    clip-path:
-        polygon(
-            0 0,
-            50% 55%,
-            100% 0,
-            100% 100%,
-            0 100%
-        );
 
-    border-radius:
-        0 0 10px 10px;
+@keyframes noteAppear {
 
-    z-index: 4;
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(0.92)
+            rotate(-2deg);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(0deg);
+    }
 }
 
 
 /* =========================================
-   💌 ENVELOPE FLAP
-========================================= */
-
-.envelope-flap {
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 62%;
-
-    background: #f8d8e4;
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 0,
-            50% 100%
-        );
-
-    z-index: 5;
-
-    transform-origin: top center;
-
-    transform:
-        rotateX(0deg);
-
-    transition:
-        transform 1s
-        cubic-bezier(.4, 0, .2, 1);
-
-    backface-visibility: visible;
-
-    transform-style: preserve-3d;
-}
-
-
-/* =========================================
-   💌 OPENED ENVELOPE
-========================================= */
-
-.envelope.open .envelope-flap {
-
-    transform:
-        rotateX(180deg);
-
-    z-index: 1;
-}
-
-
-.envelope.open .letter {
-
-    transform:
-        translateY(-145px);
-
-    z-index: 6;
-
-    box-shadow:
-        0 15px 35px
-        rgba(150, 80, 110, 0.25);
-}
-
-
-/* =========================================
-   💌 LETTER TEXT
+   NOTE HEART
 ========================================= */
 
 .letter-decoration {
-
     font-family: "Caveat", cursive;
 
-    font-size: 28px;
+    font-size: 38px;
 
     color: #d87599;
+
+    animation: littleHeart 2s ease-in-out infinite;
 }
 
 
-.letter .message-number {
+@keyframes littleHeart {
 
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+/* =========================================
+   NOTE NUMBER
+========================================= */
+
+.message-card .message-number {
     color: #c98ba3;
 
     font-size: 12px;
 
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 
-    margin:
-        5px 0 12px;
+    margin: 8px 0 12px;
 }
 
 
-.letter .little-line {
+/* =========================================
+   NOTE DIVIDER
+========================================= */
 
-    width: 45px;
+.message-card .little-line {
+    width: 55px;
+
     height: 2px;
 
-    margin:
-        0 auto 18px;
+    margin: 0 auto 22px;
 
     background: #e8a9bd;
+
+    border-radius: 10px;
 }
 
 
-.letter .message-text {
+/* =========================================
+   NOTE MESSAGE
+========================================= */
+
+.message-card .message-text {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 500px;
+
+    margin: 0 auto;
 
     font-family: "Caveat", cursive;
 
-    font-size: 27px;
+    font-size: 30px;
 
     line-height: 1.5;
 
@@ -706,39 +600,23 @@ button {
 
 
 /* =========================================
-   💌 BACK BUTTON
+   NOTE BOTTOM HEART
 ========================================= */
 
-.back-button {
+.message-bottom {
+    margin-top: 25px;
 
-    padding: 10px 20px;
+    color: #d87599;
 
-    border-radius: 20px;
-
-    background: rgba(255, 255, 255, 0.75);
-
-    border: 1px solid #e7bdcd;
-
-    color: #9b6478;
-
-    transition:
-        0.25s ease;
-}
-
-.back-button:hover {
-
-    background: #fff;
-
-    transform: translateY(-2px);
+    font-size: 25px;
 }
 
 
 /* =========================================
-   ✨ ENVELOPE PARTICLES
+   💗 HEARTS THAT FLY OUT
 ========================================= */
 
-.envelope-particle {
-
+.note-heart {
     position: fixed;
 
     pointer-events: none;
@@ -750,14 +628,13 @@ button {
     font-family: "Caveat", cursive;
 
     animation:
-        envelopeParticle 1.4s ease-out forwards;
+        noteHeartFloat 1.8s ease-out forwards;
 }
 
 
-@keyframes envelopeParticle {
+@keyframes noteHeartFloat {
 
     0% {
-
         opacity: 0;
 
         transform:
@@ -767,31 +644,62 @@ button {
     }
 
     15% {
-
         opacity: 1;
     }
 
     100% {
-
         opacity: 0;
 
         transform:
             translate(
-                calc(-50% + var(--x)),
-                calc(-50% + var(--y))
+                calc(-50% + var(--heart-x)),
+                calc(-50% + var(--heart-y))
             )
-            scale(1.3)
-            rotate(var(--rotation));
+            scale(1.2)
+            rotate(var(--heart-rotation));
     }
 }
 
 
 /* =========================================
-   🎵 MUSIC BUTTON
+   BACK BUTTON
+========================================= */
+
+.back-button {
+    position: relative;
+
+    z-index: 5;
+
+    margin-top: 30px;
+
+    padding: 10px 20px;
+
+    border-radius: 20px;
+
+    background: #fff5f8;
+
+    border: 1px solid #e7bdcd;
+
+    color: #9b6478;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.back-button:hover {
+    background: #ffe9f0;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   MUSIC BUTTON
 ========================================= */
 
 .music-button {
-
     position: fixed;
 
     right: 25px;
@@ -802,7 +710,7 @@ button {
 
     border-radius: 50%;
 
-    background: rgba(255, 255, 255, 0.8);
+    background: #fff8fb;
 
     border: 1px solid #e8bdcd;
 
@@ -813,15 +721,13 @@ button {
     z-index: 20;
 
     box-shadow:
-        0 8px 20px
-        rgba(150, 80, 110, 0.15);
+        0 8px 20px rgba(150, 80, 110, 0.15);
 
-    transition:
-        0.25s ease;
+    transition: 0.25s ease;
 }
 
-.music-button:hover {
 
+.music-button:hover {
     transform:
         scale(1.08)
         rotate(5deg);
@@ -829,7 +735,7 @@ button {
 
 
 /* =========================================
-   📱 MOBILE
+   MOBILE
 ========================================= */
 
 @media (max-width: 600px) {
@@ -838,43 +744,23 @@ button {
         font-size: 40px;
     }
 
+
     .main-card {
-        padding:
-            35px 25px;
+        padding: 35px 25px;
     }
 
 
-    .envelope {
+    .message-card {
+        width: 90%;
 
-        width: 300px;
-        height: 200px;
+        min-height: 330px;
+
+        padding: 35px 25px;
     }
 
 
-    .letter {
-
-        left: 15px;
-        right: 15px;
-
-        height: 180px;
+    .message-card .message-text {
+        font-size: 26px;
     }
 
-
-    .letter-content {
-
-        padding: 20px 15px;
-    }
-
-
-    .letter .message-text {
-
-        font-size: 23px;
-    }
-
-
-    .envelope.open .letter {
-
-        transform:
-            translateY(-120px);
-    }
 }
