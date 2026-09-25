@@ -38,7 +38,6 @@ body {
     z-index: 0;
 }
 
-
 .floating-heart {
     position: absolute;
 
@@ -71,7 +70,6 @@ body {
 
     animation-delay: 4s;
 }
-
 
 @keyframes floatHeart {
 
@@ -125,7 +123,6 @@ body {
 
     animation-delay: 1.5s;
 }
-
 
 @keyframes sparkle {
 
@@ -195,7 +192,6 @@ body {
     animation: cardAppear 0.8s ease;
 }
 
-
 @keyframes cardAppear {
 
     from {
@@ -223,7 +219,6 @@ body {
     font-size: 28px;
 }
 
-
 .heart-icon {
     margin: 15px 0;
 
@@ -233,7 +228,6 @@ body {
 
     animation: heartbeat 2s ease-in-out infinite;
 }
-
 
 @keyframes heartbeat {
 
@@ -264,20 +258,17 @@ h1 {
     line-height: 1.05;
 }
 
-
 .subtitle {
     color: #a67888;
 
     font-size: 15px;
 }
 
-
 .instruction {
     color: #a67888;
 
     font-size: 14px;
 }
-
 
 label {
     display: block;
@@ -306,7 +297,6 @@ label {
     margin: 20px 0;
 }
 
-
 .divider::before,
 .divider::after {
     content: "";
@@ -316,7 +306,6 @@ label {
 
     background: #e9b4c7;
 }
-
 
 .divider span {
     color: #d87599;
@@ -349,14 +338,12 @@ input {
     transition: 0.3s ease;
 }
 
-
 input:focus {
     border-color: #d87599;
 
     box-shadow:
         0 0 0 4px rgba(216, 117, 153, 0.12);
 }
-
 
 input::placeholder {
     color: #c59aaa;
@@ -374,7 +361,6 @@ button {
 
     font-family: "Quicksand", sans-serif;
 }
-
 
 #enter-button,
 #open-button {
@@ -402,7 +388,6 @@ button {
         box-shadow 0.2s ease;
 }
 
-
 #enter-button:hover,
 #open-button:hover {
     transform: translateY(-2px);
@@ -410,7 +395,6 @@ button {
     box-shadow:
         0 12px 25px rgba(216, 117, 153, 0.35);
 }
-
 
 #enter-button:active,
 #open-button:active {
@@ -436,13 +420,12 @@ button {
 
 
 /* =========================================
-   💌 MESSAGE / NOTE
+   MESSAGE / NOTE
 ========================================= */
 
 #message-screen {
     overflow: hidden;
 }
-
 
 .message-card {
     position: relative;
@@ -463,7 +446,6 @@ button {
 
     text-align: center;
 
-    /* SOLID NOTE */
     background: #fffdfb;
 
     border: 2px solid #edc5d4;
@@ -478,7 +460,6 @@ button {
         cubic-bezier(.2, .8, .2, 1);
 }
 
-
 .message-card::before {
     content: "";
 
@@ -492,7 +473,6 @@ button {
 
     pointer-events: none;
 }
-
 
 @keyframes noteAppear {
 
@@ -529,7 +509,6 @@ button {
 
     animation: littleHeart 2s ease-in-out infinite;
 }
-
 
 @keyframes littleHeart {
 
@@ -613,7 +592,7 @@ button {
 
 
 /* =========================================
-   💗 HEARTS THAT FLY OUT
+   HEARTS THAT FLY OUT
 ========================================= */
 
 .note-heart {
@@ -630,7 +609,6 @@ button {
     animation:
         noteHeartFloat 1.8s ease-out forwards;
 }
-
 
 @keyframes noteHeartFloat {
 
@@ -662,7 +640,7 @@ button {
 
 
 /* =========================================
-   BACK BUTTON
+   BACK / FINISH BUTTON
 ========================================= */
 
 .back-button {
@@ -687,7 +665,6 @@ button {
         background 0.25s ease;
 }
 
-
 .back-button:hover {
     background: #ffe9f0;
 
@@ -696,41 +673,371 @@ button {
 
 
 /* =========================================
-   MUSIC BUTTON
+   FINISH-UP SCREEN
 ========================================= */
 
-.music-button {
+.finish-screen {
     position: fixed;
 
-    right: 25px;
-    bottom: 25px;
+    inset: 0;
 
-    width: 50px;
-    height: 50px;
+    z-index: 10000;
 
-    border-radius: 50%;
+    display: none;
 
-    background: #fff8fb;
+    align-items: center;
+    justify-content: center;
 
-    border: 1px solid #e8bdcd;
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fff5f9,
+            #ffe0eb,
+            #f5bfd3
+        );
+
+    opacity: 0;
+}
+
+.finish-screen.show {
+    display: flex;
+
+    animation:
+        finishAppear 0.8s ease forwards;
+}
+
+.finish-card {
+    width: min(90%, 550px);
+
+    padding: 55px 30px;
+
+    text-align: center;
+
+    background: #fffafc;
+
+    border: 1px solid #f1d5df;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 70px rgba(160, 90, 120, 0.2);
+
+    animation:
+        finishCardAppear 0.9s ease;
+}
+
+.finish-heart {
+    font-family: "Caveat", cursive;
 
     color: #d87599;
 
-    font-size: 22px;
+    font-size: 70px;
 
-    z-index: 20;
+    animation:
+        finishHeartbeat 1.8s infinite;
+}
+
+.finish-card h1 {
+    margin: 15px 0 25px;
+
+    font-family: "Caveat", cursive;
+
+    color: #714558;
+
+    font-size: 48px;
+}
+
+.finish-card p {
+    color: #a67888;
+
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+#finish-open-button {
+    padding: 15px 40px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e79bb5,
+            #d87599
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
 
     box-shadow:
-        0 8px 20px rgba(150, 80, 110, 0.15);
+        0 10px 25px rgba(216, 117, 153, 0.3);
 
     transition: 0.25s ease;
 }
 
+#finish-open-button:hover {
+    transform: scale(1.08);
 
-.music-button:hover {
-    transform:
-        scale(1.08)
-        rotate(5deg);
+    box-shadow:
+        0 15px 35px rgba(216, 117, 153, 0.4);
+}
+
+
+/* =========================================
+   FINAL SCREEN
+========================================= */
+
+.final-screen {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 11000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fff0f6,
+            #ffcddd 40%,
+            #e99bb9 75%,
+            #d87599
+        );
+}
+
+.final-screen.show {
+    display: flex;
+
+    animation:
+        finalAppear 1s ease;
+}
+
+.final-content {
+    position: relative;
+
+    z-index: 10;
+
+    width: min(90%, 700px);
+
+    padding: 30px;
+
+    animation:
+        finalContentAppear 1.5s ease;
+}
+
+.huge-heart {
+    color: #d87599;
+
+    font-family: "Caveat", cursive;
+
+    font-size:
+        clamp(120px, 25vw, 220px);
+
+    line-height: 0.8;
+
+    text-shadow:
+        0 10px 30px rgba(160, 70, 110, 0.2);
+
+    animation:
+        hugeHeartbeat 1.8s infinite;
+}
+
+.final-content h1 {
+    font-family: "Caveat", cursive;
+
+    color: #714558;
+
+    font-size:
+        clamp(42px, 8vw, 70px);
+}
+
+.final-content p {
+    color: #805064;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+}
+
+.final-love {
+    margin-top: 35px;
+
+    color: #b65378;
+
+    font-family: "Caveat", cursive;
+
+    font-size:
+        clamp(50px, 10vw, 80px);
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   FINAL FLOATING HEARTS
+========================================= */
+
+.final-heart {
+    position: absolute;
+
+    bottom: -80px;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-family: "Caveat", cursive;
+
+    pointer-events: none;
+
+    animation:
+        floatFinalHeart linear forwards;
+}
+
+@keyframes floatFinalHeart {
+
+    from {
+        transform:
+            translateY(0)
+            scale(0.5)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translateY(-120vh)
+            scale(1.5)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes finishAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes finishCardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes finishHeartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes finalAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes finalContentAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.7)
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+@keyframes hugeHeartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.12);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.08);
+    }
+
+    60% {
+        transform: scale(1);
+    }
 }
 
 
@@ -744,11 +1051,9 @@ button {
         font-size: 40px;
     }
 
-
     .main-card {
         padding: 35px 25px;
     }
-
 
     .message-card {
         width: 90%;
@@ -758,9 +1063,27 @@ button {
         padding: 35px 25px;
     }
 
-
     .message-card .message-text {
         font-size: 26px;
     }
 
+    .finish-card {
+        padding: 45px 22px;
+    }
+
+    .finish-card h1 {
+        font-size: 40px;
+    }
+
+    .finish-card p {
+        font-size: 17px;
+    }
+
+    .final-content {
+        padding: 20px;
+    }
+
+    .final-content p {
+        font-size: 18px;
+    }
 }
