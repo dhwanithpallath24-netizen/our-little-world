@@ -5,154 +5,31 @@ const nameError = document.getElementById("name-error");
 const nameScreen = document.getElementById("name-screen");
 const numberScreen = document.getElementById("number-screen");
 
-enterButton.addEventListener("click", checkName);
-
-nameInput.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        checkName();
-    }
-});
-
-function checkName() {
-    const enteredName = nameInput.value.trim().toLowerCase();
-
-    if (enteredName === "yai" || enteredName === "yasmine") {
-
-        nameError.textContent = "";
-
-        nameScreen.classList.remove("active");
-
-        setTimeout(function() {
-            nameScreen.style.display = "none";
-
-            numberScreen.style.display = "flex";
-            numberScreen.classList.add("active");
-        }, 400);
-
-    } else {
-
-        nameError.textContent =
-            "Hmm... I don't think you're supposed to be here ♡";
-
-        nameInput.value = "";
-        nameInput.focus();
-    }
-}
-
-
-const messages = {
-
-    "001": "Your first message goes here...",
-
-    "002": "Your second message goes here...",
-
-    "003": "Your third message goes here...",
-
-    "143": "I love you ♡"
-
-};
-
-
 const numberInput = document.getElementById("number-input");
 const openButton = document.getElementById("open-button");
 const numberError = document.getElementById("number-error");
 
 const messageScreen = document.getElementById("message-screen");
-
 const messageText = document.getElementById("message-text");
 const messageNumber = document.querySelector(".message-number");
 
-openButton.addEventListener("click", openMessage);
-
-numberInput.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        openMessage();
-    }
-});
-
-
-function openMessage() {
-
-    let number = numberInput.value.trim();
-
-    if (/^\d+$/.test(number)) {
-        number = number.padStart(3, "0");
-    }
-
-    if (messages[number]) {
-
-        numberError.textContent = "";
-
-        messageNumber.textContent = number;
-        messageText.textContent = "";
-
-        numberScreen.classList.remove("active");
-
-        setTimeout(function() {
-
-            numberScreen.style.display = "none";
-
-            messageScreen.style.display = "flex";
-            messageScreen.classList.add("active");
-
-            typeMessage(messages[number]);
-
-        }, 400);
-
-    } else {
-
-        numberError.textContent =
-            "I don't think there's anything here... try another number ♡";
-
-    }
-}
-
-
-function typeMessage(message) {
-
-    let index = 0;
-
-    messageText.textContent = "";
-
-    const typingSpeed = 45;
-
-    const typing = setInterval(function() {
-
-        messageText.textContent += message.charAt(index);
-
-        index++;
-
-        if (index >= message.length) {
-            clearInterval(typing);
-        }
-
-    }, typingSpeed);
-}
-
-
 const backButton = document.getElementById("back-button");
 
-backButton.addEventListener("click", function() {
 
-    messageScreen.classList.remove("active");
-
-    setTimeout(function() {
-
-        messageScreen.style.display = "none";
-
-        numberScreen.style.display = "flex";
-        numberScreen.classList.add("active");
-
-        numberInput.value = "";
-        numberInput.focus();
-
-    }, 400);
-
-});
-
-```javascript
 /* =========================================
-   CUTE CLICK PARTICLES
+   MESSAGES
+========================================= */
+
+const messages = {
+    "001": "Your first message goes here...",
+    "002": "Your second message goes here...",
+    "003": "Your third message goes here...",
+    "143": "I love you ♡"
+};
+
+
+/* =========================================
+   CUTE PARTICLE EFFECT
 ========================================= */
 
 function createParticles(button) {
@@ -172,13 +49,11 @@ function createParticles(button) {
             symbols[Math.floor(Math.random() * symbols.length)];
 
         particle.style.position = "fixed";
-
         particle.style.left = centerX + "px";
         particle.style.top = centerY + "px";
 
         particle.style.pointerEvents = "none";
-
-        particle.style.zIndex = "9999";
+        particle.style.zIndex = "99999";
 
         particle.style.color =
             Math.random() > 0.5
@@ -186,19 +61,17 @@ function createParticles(button) {
                 : "#e9a6bd";
 
         particle.style.fontSize =
-            (12 + Math.random() * 15) + "px";
+            (14 + Math.random() * 14) + "px";
 
         particle.style.fontFamily =
             "Caveat, cursive";
 
         document.body.appendChild(particle);
 
-
-        const angle =
-            Math.random() * Math.PI * 2;
+        const angle = Math.random() * Math.PI * 2;
 
         const distance =
-            60 + Math.random() * 100;
+            70 + Math.random() * 100;
 
         const endX =
             Math.cos(angle) * distance;
@@ -206,13 +79,11 @@ function createParticles(button) {
         const endY =
             Math.sin(angle) * distance;
 
-
         particle.animate(
             [
                 {
                     transform:
-                        "translate(-50%, -50%) scale(0.5) rotate(0deg)",
-
+                        "translate(-50%, -50%) scale(0.4)",
                     opacity: 1
                 },
 
@@ -222,52 +93,200 @@ function createParticles(button) {
                             calc(-50% + ${endX}px),
                             calc(-50% + ${endY}px)
                         )
-                        scale(1.2)
+                        scale(1.3)
                         rotate(${Math.random() * 180 - 90}deg)`,
 
                     opacity: 0
                 }
             ],
             {
-                duration:
-                    700 + Math.random() * 500,
-
-                easing:
-                    "cubic-bezier(.17,.67,.35,1.2)"
+                duration: 900 + Math.random() * 400,
+                easing: "ease-out"
             }
         );
 
+        setTimeout(function() {
+            particle.remove();
+        }, 1400);
+    }
+}
+
+
+/* =========================================
+   NAME SCREEN
+========================================= */
+
+enterButton.addEventListener("click", checkName);
+
+nameInput.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        checkName();
+    }
+
+});
+
+
+function checkName() {
+
+    // MAKE PARTICLES FIRST
+    createParticles(enterButton);
+
+    const enteredName =
+        nameInput.value.trim().toLowerCase();
+
+
+    if (
+        enteredName === "yai" ||
+        enteredName === "yasmine"
+    ) {
+
+        nameError.textContent = "";
+
+        nameScreen.classList.remove("active");
 
         setTimeout(function() {
 
-            particle.remove();
+            nameScreen.style.display = "none";
 
-        }, 1300);
+            numberScreen.style.display = "flex";
+            numberScreen.classList.add("active");
+
+        }, 400);
+
+    }
+
+    else {
+
+        nameError.textContent =
+            "Hmm... I don't think you're supposed to be here ♡";
+
+        nameInput.value = "";
+        nameInput.focus();
 
     }
 }
 
 
 /* =========================================
-   ADD PARTICLES TO BUTTONS
+   NUMBER SCREEN
 ========================================= */
 
-enterButton.addEventListener(
-    "click",
-    function() {
+openButton.addEventListener("click", openMessage);
 
-        createParticles(this);
+numberInput.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        openMessage();
+    }
+
+});
+
+
+function openMessage() {
+
+    // PARTICLES FIRST
+    createParticles(openButton);
+
+    let number =
+        numberInput.value.trim();
+
+
+    if (/^\d+$/.test(number)) {
+        number = number.padStart(3, "0");
+    }
+
+
+    if (messages[number]) {
+
+        numberError.textContent = "";
+
+        messageNumber.textContent = number;
+
+        messageText.textContent = "";
+
+
+        numberScreen.classList.remove("active");
+
+
+        setTimeout(function() {
+
+            numberScreen.style.display = "none";
+
+            messageScreen.style.display = "flex";
+
+            messageScreen.classList.add("active");
+
+            typeMessage(messages[number]);
+
+        }, 400);
 
     }
-);
 
+    else {
 
-openButton.addEventListener(
-    "click",
-    function() {
-
-        createParticles(this);
+        numberError.textContent =
+            "I don't think there's anything here... try another number ♡";
 
     }
-);
-```
+}
+
+
+/* =========================================
+   TYPEWRITER EFFECT
+========================================= */
+
+function typeMessage(message) {
+
+    let index = 0;
+
+    messageText.textContent = "";
+
+    const typingSpeed = 45;
+
+
+    const typing = setInterval(function() {
+
+        messageText.textContent +=
+            message.charAt(index);
+
+        index++;
+
+
+        if (index >= message.length) {
+
+            clearInterval(typing);
+
+        }
+
+    }, typingSpeed);
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+backButton.addEventListener("click", function() {
+
+    createParticles(backButton);
+
+    messageScreen.classList.remove("active");
+
+
+    setTimeout(function() {
+
+        messageScreen.style.display = "none";
+
+        numberScreen.style.display = "flex";
+
+        numberScreen.classList.add("active");
+
+        numberInput.value = "";
+
+        numberInput.focus();
+
+    }, 400);
+
+});
+
