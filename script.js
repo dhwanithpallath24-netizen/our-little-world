@@ -222,5 +222,445 @@ function openMessage() {
 }
 
 
-/* =================================*
+/* =========================================
+   ✍️ TYPEWRITER
+========================================= */
+
+function typeMessage(message) {
+
+    let index = 0;
+
+    messageText.textContent = "";
+
+    const typingSpeed = 45;
+
+
+    const typing =
+        setInterval(function() {
+
+            messageText.textContent +=
+                message.charAt(index);
+
+            index++;
+
+
+            if (
+                index >= message.length
+            ) {
+
+                clearInterval(typing);
+
+            }
+
+        }, typingSpeed);
+}
+
+
+/* =========================================
+   💗 HEARTS WHEN NOTE OPENS
+========================================= */
+
+function createNoteHearts() {
+
+    const symbols = [
+        "♡",
+        "♥",
+        "♡",
+        "✦",
+        "♥",
+        "♡"
+    ];
+
+
+    const card =
+        document.querySelector(
+            ".message-card"
+        );
+
+
+    const rect =
+        card.getBoundingClientRect();
+
+
+    const centerX =
+        rect.left +
+        rect.width / 2;
+
+
+    const centerY =
+        rect.top +
+        rect.height / 2;
+
+
+    for (
+        let i = 0;
+        i < 20;
+        i++
+    ) {
+
+        const heart =
+            document.createElement(
+                "span"
+            );
+
+
+        heart.className =
+            "note-heart";
+
+
+        heart.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+
+        heart.style.left =
+            centerX + "px";
+
+
+        heart.style.top =
+            centerY + "px";
+
+
+        heart.style.fontSize =
+            (
+                16 +
+                Math.random() * 18
+            ) + "px";
+
+
+        heart.style.setProperty(
+            "--heart-x",
+            (
+                Math.random() * 300 -
+                150
+            ) + "px"
+        );
+
+
+        heart.style.setProperty(
+            "--heart-y",
+            (
+                Math.random() * 260 -
+                130
+            ) + "px"
+        );
+
+
+        heart.style.setProperty(
+            "--heart-rotation",
+            (
+                Math.random() * 180 -
+                90
+            ) + "deg"
+        );
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(function() {
+
+            heart.remove();
+
+        }, 1900);
+
+    }
+}
+
+
+/* =========================================
+   ← BACK BUTTON
+========================================= */
+
+const backButton =
+    document.getElementById("back-button");
+
+
+backButton.addEventListener(
+    "click",
+    function() {
+
+        messageScreen.classList.remove(
+            "active"
+        );
+
+
+        setTimeout(function() {
+
+            messageScreen.style.display =
+                "none";
+
+
+            numberScreen.style.display =
+                "flex";
+
+
+            numberScreen.classList.add(
+                "active"
+            );
+
+
+            numberInput.value = "";
+
+            numberInput.focus();
+
+        }, 400);
+
+    }
+);
+
+
+/* =========================================
+   ✨ BUTTON PARTICLES
+========================================= */
+
+function createParticles(button) {
+
+    const symbols = [
+        "♡",
+        "♥",
+        "✦",
+        "✧",
+        "˚",
+        "⋆"
+    ];
+
+
+    const rect =
+        button.getBoundingClientRect();
+
+
+    const centerX =
+        rect.left +
+        rect.width / 2;
+
+
+    const centerY =
+        rect.top +
+        rect.height / 2;
+
+
+    for (
+        let i = 0;
+        i < 18;
+        i++
+    ) {
+
+        const particle =
+            document.createElement(
+                "span"
+            );
+
+
+        particle.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+
+        particle.style.position =
+            "fixed";
+
+
+        particle.style.left =
+            centerX + "px";
+
+
+        particle.style.top =
+            centerY + "px";
+
+
+        particle.style.pointerEvents =
+            "none";
+
+
+        particle.style.zIndex =
+            "99999";
+
+
+        particle.style.color =
+            Math.random() > 0.5
+                ? "#d87599"
+                : "#e9a6bd";
+
+
+        particle.style.fontSize =
+            (
+                14 +
+                Math.random() * 14
+            ) + "px";
+
+
+        particle.style.fontFamily =
+            "Caveat, cursive";
+
+
+        document.body.appendChild(
+            particle
+        );
+
+
+        const angle =
+            Math.random() *
+            Math.PI *
+            2;
+
+
+        const distance =
+            70 +
+            Math.random() * 100;
+
+
+        const endX =
+            Math.cos(angle) *
+            distance;
+
+
+        const endY =
+            Math.sin(angle) *
+            distance;
+
+
+        particle.animate(
+
+            [
+
+                {
+                    transform:
+                        "translate(-50%, -50%) scale(0.4)",
+
+                    opacity: 1
+                },
+
+                {
+                    transform:
+                        `translate(
+                            calc(-50% + ${endX}px),
+                            calc(-50% + ${endY}px)
+                        )
+                        scale(1.3)
+                        rotate(
+                            ${Math.random() * 180 - 90}deg
+                        )`,
+
+                    opacity: 0
+                }
+
+            ],
+
+            {
+
+                duration:
+                    900 +
+                    Math.random() * 400,
+
+                easing: "ease-out"
+
+            }
+
+        );
+
+
+        setTimeout(function() {
+
+            particle.remove();
+
+        }, 1400);
+
+    }
+}
+
+
+/* =========================================
+   BUTTON PARTICLES
+========================================= */
+
+enterButton.addEventListener(
+    "click",
+    function() {
+
+        createParticles(this);
+
+    }
+);
+
+
+openButton.addEventListener(
+    "click",
+    function() {
+
+        createParticles(this);
+
+    }
+);
+
+
+/* =========================================
+   🎵 MUSIC PLAYER
+========================================= */
+
+const musicButton =
+    document.querySelector(".music-button");
+
+const music =
+    new Audio("song.mp3");
+
+music.loop = true;
+
+music.volume = 0.5;
+
+
+let musicPlaying = false;
+
+
+if (musicButton) {
+
+    musicButton.addEventListener(
+        "click",
+        async function() {
+
+            try {
+
+                if (musicPlaying) {
+
+                    music.pause();
+
+                    musicPlaying = false;
+
+                    musicButton.textContent =
+                        "♡";
+
+                } else {
+
+                    await music.play();
+
+                    musicPlaying = true;
+
+                    musicButton.textContent =
+                        "♫";
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Music could not play:",
+                    error
+                );
+
+            }
+
+        }
+    );
+
+}
 ```
