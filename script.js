@@ -150,3 +150,124 @@ backButton.addEventListener("click", function() {
 
 });
 
+```javascript
+/* =========================================
+   CUTE CLICK PARTICLES
+========================================= */
+
+function createParticles(button) {
+
+    const symbols = ["♡", "♥", "✦", "✧", "˚", "⋆"];
+
+    const rect = button.getBoundingClientRect();
+
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    for (let i = 0; i < 18; i++) {
+
+        const particle = document.createElement("span");
+
+        particle.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        particle.style.position = "fixed";
+
+        particle.style.left = centerX + "px";
+        particle.style.top = centerY + "px";
+
+        particle.style.pointerEvents = "none";
+
+        particle.style.zIndex = "9999";
+
+        particle.style.color =
+            Math.random() > 0.5
+                ? "#d87599"
+                : "#e9a6bd";
+
+        particle.style.fontSize =
+            (12 + Math.random() * 15) + "px";
+
+        particle.style.fontFamily =
+            "Caveat, cursive";
+
+        document.body.appendChild(particle);
+
+
+        const angle =
+            Math.random() * Math.PI * 2;
+
+        const distance =
+            60 + Math.random() * 100;
+
+        const endX =
+            Math.cos(angle) * distance;
+
+        const endY =
+            Math.sin(angle) * distance;
+
+
+        particle.animate(
+            [
+                {
+                    transform:
+                        "translate(-50%, -50%) scale(0.5) rotate(0deg)",
+
+                    opacity: 1
+                },
+
+                {
+                    transform:
+                        `translate(
+                            calc(-50% + ${endX}px),
+                            calc(-50% + ${endY}px)
+                        )
+                        scale(1.2)
+                        rotate(${Math.random() * 180 - 90}deg)`,
+
+                    opacity: 0
+                }
+            ],
+            {
+                duration:
+                    700 + Math.random() * 500,
+
+                easing:
+                    "cubic-bezier(.17,.67,.35,1.2)"
+            }
+        );
+
+
+        setTimeout(function() {
+
+            particle.remove();
+
+        }, 1300);
+
+    }
+}
+
+
+/* =========================================
+   ADD PARTICLES TO BUTTONS
+========================================= */
+
+enterButton.addEventListener(
+    "click",
+    function() {
+
+        createParticles(this);
+
+    }
+);
+
+
+openButton.addEventListener(
+    "click",
+    function() {
+
+        createParticles(this);
+
+    }
+);
+```
