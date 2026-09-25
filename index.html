@@ -1,11 +1,181 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>For You ♡</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Place For You ♡</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Pretty handwritten fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <h1>Hello ♡</h1>
+    <!-- Floating background decorations -->
+    <div class="background">
+        <span class="floating-heart">♡</span>
+        <span class="floating-heart">♡</span>
+        <span class="floating-heart">♡</span>
+        <span class="sparkle">✦</span>
+        <span class="sparkle">✧</span>
+        <span class="sparkle">✦</span>
+        <span class="sparkle">✧</span>
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- NAME SCREEN -->
+    <!-- ========================= -->
+
+    <main id="name-screen" class="screen active">
+
+        <div class="main-card">
+
+            <div class="top-decoration">୨୧</div>
+
+            <div class="heart-icon">♡</div>
+
+            <h1>A little place<br>just for you</h1>
+
+            <p class="subtitle">
+                there's something waiting inside...
+            </p>
+
+            <div class="divider">
+                <span>♡</span>
+            </div>
+
+            <label for="name-input">
+                What's your name?
+            </label>
+
+            <input
+                type="text"
+                id="name-input"
+                placeholder="your name..."
+                autocomplete="off"
+            >
+
+            <button id="enter-button">
+                <span>♡</span>
+                Enter
+                <span>♡</span>
+            </button>
+
+            <p id="name-error" class="error-message"></p>
+
+            <div class="bottom-decoration">
+                ˚₊‧ 𐙚 ‧₊˚
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ========================= -->
+    <!-- NUMBER SCREEN -->
+    <!-- ========================= -->
+
+    <main id="number-screen" class="screen">
+
+        <div class="main-card">
+
+            <div class="top-decoration">୨୧</div>
+
+            <div class="heart-icon">♡</div>
+
+            <h1>Welcome, angel ♡</h1>
+
+            <p class="subtitle">
+                I left a few things here for you...
+            </p>
+
+            <div class="divider">
+                <span>✦</span>
+            </div>
+
+            <p class="instruction">
+                You just have to find them.
+            </p>
+
+            <label for="number-input">
+                Enter a number
+            </label>
+
+            <input
+                type="text"
+                id="number-input"
+                placeholder="001"
+                autocomplete="off"
+            >
+
+            <button id="open-button">
+                <span>♡</span>
+                Open
+                <span>♡</span>
+            </button>
+
+            <p id="number-error" class="error-message"></p>
+
+            <div class="bottom-decoration">
+                ˚₊‧ 𐙚 ‧₊˚
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ========================= -->
+    <!-- MESSAGE SCREEN -->
+    <!-- ========================= -->
+
+    <main id="message-screen" class="screen">
+
+        <div class="message-card">
+
+            <div class="letter-decoration">♡</div>
+
+            <p class="message-number">
+                001
+            </p>
+
+            <div class="little-line"></div>
+
+            <p id="message-text" class="message-text"></p>
+
+            <div class="message-bottom">
+                ♡
+            </div>
+
+            <button id="back-button" class="back-button">
+                ← find another
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- ========================= -->
+    <!-- MUSIC BUTTON -->
+    <!-- ========================= -->
+
+    <button id="music-button" class="music-button">
+        ♫
+    </button>
+
+
+    <script src="script.js"></script>
 
 </body>
 </html>
+```
+
