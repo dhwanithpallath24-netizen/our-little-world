@@ -169,15 +169,18 @@ const messages = {
         "Whenever I see any pair of characters,animals or anything I always associate them with us in any shape INSTANTLY, YOU'RE ALWAYS ON MY MIND",
 
    "028":
-        "I could sacrifice everything for you but it'll still feel like I didn't lose anything as long as I have you",
+       "Your voice is so sweet and just really pleasant calming to hear I love all of the vms you send AND I LOVE THE THIS REMINDS ME VMS ABSHCA",
 
    "029":
-       "I already won the biggest jackpot of my life meeting you, you are my everything everyone all at once",
+        "I could sacrifice everything for you but it'll still feel like I didn't lose anything as long as I have you",
 
    "030":
-       "My love I want to give you the whole world,you'll always be my priority no matter what happens, my love for you and how I feel about you will never ever change. Until my dying breath,until the Sun explodes, the Earth ceases to exist,until time stops I'll always love you, I'll always be on your side,I'll always trust you with my life,I'll always be there for you,I'll always protect you from anything and everything,I'll always be a warm and comfortable space for you,I'll always come running to you,I'll always choose you in a room filled with everyone I know,I'll always spoil you,I'll always buy you things with what little money I have,I'll always celebrate your wins and comfort you for your losses, I'll be there when you're up high or when you're down low, I'll always love every single part and version of you,I'll be there when you want to talk a lot or when you don't feel like talking,I'll never ever judge you for anything, I'll be there to help you for anything, if its smth I can't help with then I'll learn,I'll be there with every step no matter which step you take, I'll be there to help you through your high school life, I'll always be there for everything and everytime you need me",
+       "I already won the biggest jackpot of my life meeting you, you are my everything everyone all at once",
 
    "031":
+       "My love I want to give you the whole world,you'll always be my priority no matter what happens, my love for you and how I feel about you will never ever change. Until my dying breath,until the Sun explodes, the Earth ceases to exist,until time stops I'll always love you, I'll always be on your side,I'll always trust you with my life,I'll always be there for you,I'll always protect you from anything and everything,I'll always be a warm and comfortable space for you,I'll always come running to you,I'll always choose you in a room filled with everyone I know,I'll always spoil you,I'll always buy you things with what little money I have,I'll always celebrate your wins and comfort you for your losses, I'll be there when you're up high or when you're down low, I'll always love every single part and version of you,I'll be there when you want to talk a lot or when you don't feel like talking,I'll never ever judge you for anything, I'll be there to help you for anything, if its smth I can't help with then I'll learn,I'll be there with every step no matter which step you take, I'll be there to help you through your high school life, I'll always be there for everything and everytime you need me",
+
+   "032":
        "My angel as long as I'm around you will never ever feel alone, you can come to me for absolutely anything,I don't believe in gods but you are ♡my god♡"
 };
 
