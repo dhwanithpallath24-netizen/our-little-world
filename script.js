@@ -91,16 +91,91 @@ function checkName() {
 const messages = {
 
     "001":
-        "Your first message goes here...",
+        "ITS FINALLY YOUR BIRTHDAY,HAPPY BIRTHDAY MY LOVELY ANGEL!!",
 
     "002":
-        "Your second message goes here...",
+        "You mentioned the unsent project one time so I tried making smth similar and personal for my love,hope you like it",
 
     "003":
-        "Your third message goes here...",
+        "All of these messages are just for my love and they come from the deepest depths of my heart",
 
-    "143":
-        "I love you ♡"
+    "004":
+        "You're the most sweetest and kindest person I've ever met in my life"
+       
+    "005":
+        "You're sunshine,warmth and love personified all in one person"
+
+    "006":
+        "You've got more of my heart than I do,even all of it"
+
+    "007":
+        "I could spend all the time in this world with you and I'll still want to have more time with you"
+
+    "008":
+        "You're so lovable, loving you is as natural for me as breathing is,I could live without most things but living without loving you would be impossible"
+
+    "009":
+        "There's nothing in this world that I genuinely want more than to be there with you irl, I'd give up everything I hold dear for even a day with you irl"
+
+    "010":
+        "I'd love to spoil you with every chance I get,I wish I could do so much more for you each day I find more and more things I want to do for you"
+
+    "011":
+        "My love you're my heart,my being, your happiness is my happiness, your worries are my worries,your problems are my problems,Everything I am is for you"
+
+   "012":
+        "I want to keep hearing every small detail about you,every single ones no matter small or big,I want to know everything about you"
+
+    "013":
+        "My love everything reminds me of you,from the flowers I see as I walk by,the sun as it shines bright,the air as it breezes,the sky as it stands vast and beautiful"
+
+    "014":
+        "You're as gorgeous as the moon captivating everyone's attention, as a field of the most beautiful flowers,You're as graceful as a swan,as cute as kittens,as sweet as candy,as gentle as cotton,as smart as Einstein,as strong as Madoka and I love you so much"
+
+    "015":
+        "You'll NEVER EVER be too much for me, In fact I want way more of you in every possible way, I NEEED MORE OF YOU"
+
+    "016":
+        "I'm really really bad with birthdays, yours were the only I was sure of and was looking forward to ALL THIS TIME"
+
+    "017":
+        "No matter what I do,how swamped I am,how overwhelmed I may be, my love one word from you and I'll come running to your side, I'm only busy for everyone else, I'm always free for you"
+
+    "018":
+        "I could be surrounded by ppl,having blast of a time but I'd still find myself checking for your messages because nothing will ever be as fun as just talking with you even about the most randomest things ever"
+
+    "020":
+        "An hour sounds short until its an hour without you and suddenly it feels like an eternity,every mins feels like hours away from you"
+
+    "021":
+        "My love for you knows no bounds, I could change every fibre of my being for you, forget hate if you dislike or are annoyed at smth about me INSTANLY GONE if its smth I like? DOES NOT MATTER"
+
+   "022":
+        "I want to talk to you forever,comfort you forever,protect you forever,be there for you forever,love you forever I just want you forver"
+
+   "023":
+        "GAHH I'M SO JEALOUS OF YOUR KITTIES WHO GET TO SEE YOU ALL THE TIME, THEY'RE LIVING MY DREAM DHASB CJAKN"
+
+   "024":
+        "You're genuinely a wish,treasure,miracle blessing all in once. Being able to talk like someone as amazing,loving and sweet like you makes me the luckiest person ever"
+
+   "025":
+        "I love all the inside jokes we have,and I love it so much more because only both of us knows it's like our own world"
+
+   "026":
+        "One life is not enough to love you,I hope I find you in every life,in every universe and I pray we're close in all of those lives and universes"
+
+   "027":
+        "Whenever I see any pair of characters,animals or anything I always associate them with us in any shape INSTANTLY, YOU'RE ALWAYS ON MY MIND"
+
+   "028":
+        "I could sacrifice everything for you but it'll still feel like I didn't lose anything as long as I have you"
+
+   "029":
+       "I already won the biggest jackpot of my life meeting you, you are my everything everyone all at once"
+
+   "030":
+        
 
 };
 
