@@ -608,59 +608,50 @@ openButton.addEventListener(
    🎵 MUSIC PLAYER
 ========================================= */
 
-const musicButton =
-    document.querySelector(".music-button");
+const musicButton = document.getElementById("music-button");
+const music = document.getElementById("background-music");
 
-const music =
-    new Audio("song.mp3");
+if (musicButton && music) {
 
-music.loop = true;
+    musicButton.addEventListener("click", function () {
 
-music.volume = 0.5;
+        if (music.paused) {
 
+            music.play()
+                .then(function () {
 
-let musicPlaying = false;
+                    musicButton.textContent = "Ⅱ";
 
+                    console.log("MUSIC PLAYING!");
 
-if (musicButton) {
+                })
+                .catch(function (error) {
 
-    musicButton.addEventListener(
-        "click",
-        async function() {
+                    console.error("MUSIC ERROR:", error);
 
-            try {
+                    alert(
+                        "Music failed to play.\n\n" +
+                        "Error: " + error.message
+                    );
 
-                if (musicPlaying) {
+                });
 
-                    music.pause();
+        } else {
 
-                    musicPlaying = false;
+            music.pause();
 
-                    musicButton.textContent =
-                        "♡";
+            musicButton.textContent = "♫";
 
-                } else {
-
-                    await music.play();
-
-                    musicPlaying = true;
-
-                    musicButton.textContent =
-                        "♫";
-
-                }
-
-            } catch (error) {
-
-                console.error(
-                    "Music could not play:",
-                    error
-                );
-
-            }
+            console.log("MUSIC PAUSED!");
 
         }
+
+    });
+
+} else {
+
+    console.error(
+        "Music button or audio element was NOT found."
     );
 
 }
-```
