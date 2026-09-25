@@ -29,9 +29,7 @@ nameInput.addEventListener(
     function(event) {
 
         if (event.key === "Enter") {
-
             checkName();
-
         }
 
     }
@@ -53,16 +51,22 @@ function checkName() {
 
         nameError.textContent = "";
 
-        nameScreen.classList.remove("active");
+        nameScreen.classList.remove(
+            "active"
+        );
 
 
         setTimeout(function() {
 
-            nameScreen.style.display = "none";
+            nameScreen.style.display =
+                "none";
 
-            numberScreen.style.display = "flex";
+            numberScreen.style.display =
+                "flex";
 
-            numberScreen.classList.add("active");
+            numberScreen.classList.add(
+                "active"
+            );
 
         }, 400);
 
@@ -81,7 +85,7 @@ function checkName() {
 
 
 /* =========================================
-   MESSAGES
+   💌 MESSAGES
 ========================================= */
 
 const messages = {
@@ -135,9 +139,7 @@ numberInput.addEventListener(
     function(event) {
 
         if (event.key === "Enter") {
-
             openMessage();
-
         }
 
     }
@@ -154,7 +156,7 @@ function openMessage() {
         numberInput.value.trim();
 
 
-    /* Convert 1 → 001 */
+    /* Allows 1 to become 001 */
 
     if (/^\d+$/.test(number)) {
 
@@ -167,7 +169,6 @@ function openMessage() {
     if (messages[number]) {
 
         numberError.textContent = "";
-
 
         messageNumber.textContent =
             number;
@@ -195,66 +196,17 @@ function openMessage() {
             );
 
 
-            /*
-                Wait a tiny moment so the
-                envelope appears first.
-            */
+            /* Wait for note animation */
 
             setTimeout(function() {
 
-                const envelope =
-                    document.querySelector(
-                        ".envelope"
-                    );
+                createNoteHearts();
 
-
-                /*
-                    Make sure it starts closed.
-                */
-
-                envelope.classList.remove(
-                    "open"
+                typeMessage(
+                    messages[number]
                 );
 
-
-                /*
-                    Then open it.
-                */
-
-                setTimeout(function() {
-
-                    envelope.classList.add(
-                        "open"
-                    );
-
-
-                    /*
-                        Hearts + sparkles
-                    */
-
-                    createEnvelopeParticles(
-                        envelope
-                    );
-
-
-                    /*
-                        Start typing after
-                        the envelope opens.
-                    */
-
-                    setTimeout(function() {
-
-                        typeMessage(
-                            messages[number]
-                        );
-
-                    }, 650);
-
-
-                }, 200);
-
-
-            }, 100);
+            }, 450);
 
 
         }, 400);
@@ -279,7 +231,6 @@ function typeMessage(message) {
 
     messageText.textContent = "";
 
-
     const typingSpeed = 45;
 
 
@@ -301,6 +252,124 @@ function typeMessage(message) {
             }
 
         }, typingSpeed);
+}
+
+
+/* =========================================
+   💗 HEARTS WHEN NOTE OPENS
+========================================= */
+
+function createNoteHearts() {
+
+    const symbols = [
+        "♡",
+        "♥",
+        "♡",
+        "✦",
+        "♥",
+        "♡"
+    ];
+
+
+    const card =
+        document.querySelector(
+            ".message-card"
+        );
+
+
+    const rect =
+        card.getBoundingClientRect();
+
+
+    const centerX =
+        rect.left +
+        rect.width / 2;
+
+
+    const centerY =
+        rect.top +
+        rect.height / 2;
+
+
+    for (
+        let i = 0;
+        i < 20;
+        i++
+    ) {
+
+        const heart =
+            document.createElement(
+                "span"
+            );
+
+
+        heart.className =
+            "note-heart";
+
+
+        heart.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+
+        heart.style.left =
+            centerX + "px";
+
+
+        heart.style.top =
+            centerY + "px";
+
+
+        heart.style.fontSize =
+            (
+                16 +
+                Math.random() * 18
+            ) + "px";
+
+
+        heart.style.setProperty(
+            "--heart-x",
+            (
+                Math.random() * 300 -
+                150
+            ) + "px"
+        );
+
+
+        heart.style.setProperty(
+            "--heart-y",
+            (
+                Math.random() * 260 -
+                130
+            ) + "px"
+        );
+
+
+        heart.style.setProperty(
+            "--heart-rotation",
+            (
+                Math.random() * 180 -
+                90
+            ) + "deg"
+        );
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(function() {
+
+            heart.remove();
+
+        }, 1900);
+
+    }
 }
 
 
@@ -340,7 +409,6 @@ backButton.addEventListener(
 
             numberInput.focus();
 
-
         }, 400);
 
     }
@@ -348,7 +416,7 @@ backButton.addEventListener(
 
 
 /* =========================================
-   ✨ CLICK PARTICLES
+   ✨ BUTTON PARTICLES
 ========================================= */
 
 function createParticles(button) {
@@ -384,7 +452,9 @@ function createParticles(button) {
     ) {
 
         const particle =
-            document.createElement("span");
+            document.createElement(
+                "span"
+            );
 
 
         particle.textContent =
@@ -499,14 +569,11 @@ function createParticles(button) {
         );
 
 
-        setTimeout(
-            function() {
+        setTimeout(function() {
 
-                particle.remove();
+            particle.remove();
 
-            },
-            1400
-        );
+        }, 1400);
 
     }
 }
@@ -534,122 +601,3 @@ openButton.addEventListener(
 
     }
 );
-
-
-/* =========================================
-   💌 ENVELOPE PARTICLES
-========================================= */
-
-function createEnvelopeParticles(
-    envelope
-) {
-
-    const symbols = [
-        "♡",
-        "♥",
-        "✦",
-        "✧",
-        "˚",
-        "⋆"
-    ];
-
-
-    const rect =
-        envelope.getBoundingClientRect();
-
-
-    const centerX =
-        rect.left +
-        rect.width / 2;
-
-
-    const centerY =
-        rect.top +
-        rect.height / 2;
-
-
-    for (
-        let i = 0;
-        i < 22;
-        i++
-    ) {
-
-        const particle =
-            document.createElement(
-                "span"
-            );
-
-
-        particle.className =
-            "envelope-particle";
-
-
-        particle.textContent =
-            symbols[
-                Math.floor(
-                    Math.random() *
-                    symbols.length
-                )
-            ];
-
-
-        particle.style.left =
-            centerX + "px";
-
-
-        particle.style.top =
-            centerY + "px";
-
-
-        particle.style.fontSize =
-            (
-                16 +
-                Math.random() * 16
-            ) + "px";
-
-
-        particle.style.setProperty(
-            "--x",
-            (
-                Math.random() * 220 -
-                110
-            ) + "px"
-        );
-
-
-        particle.style.setProperty(
-            "--y",
-            (
-                Math.random() * 180 -
-                100
-            ) + "px"
-        );
-
-
-        particle.style.setProperty(
-            "--rotation",
-            (
-                Math.random() * 180 -
-                90
-            ) + "deg"
-        );
-
-
-        document.body.appendChild(
-            particle
-        );
-
-
-        setTimeout(
-            function() {
-
-                particle.remove();
-
-            },
-            1500
-        );
-
-    }
-}
-
-
