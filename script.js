@@ -85,7 +85,7 @@ function checkName() {
 
 
 /* =========================================
-   💌 MESSAGES
+   💌 ALL 32 MESSAGES
 ========================================= */
 
 const messages = {
@@ -101,9 +101,9 @@ const messages = {
 
     "004":
         "You're the most sweetest and kindest person I've ever met in my life",
-       
+
     "005":
-        "You're sunshine,warmth and love personified all in one person,",
+        "You're sunshine,warmth and love personified all in one person",
 
     "006":
         "You've got more of my heart than I do,even all of it",
@@ -123,7 +123,7 @@ const messages = {
     "011":
         "My love you're my heart,my being, your happiness is my happiness, your worries are my worries,your problems are my problems,Everything I am is for you",
 
-   "012":
+    "012":
         "I want to keep hearing every small detail about you,every single ones no matter small or big,I want to know everything about you",
 
     "013":
@@ -144,45 +144,58 @@ const messages = {
     "018":
         "I could be surrounded by ppl,having blast of a time but I'd still find myself checking for your messages because nothing will ever be as fun as just talking with you even about the most randomest things ever",
 
+    "019":
+        "As long as I exist you'll always be loved, I'll make sure of that as long as I'm here you won't ever feel bad and you'll have a shoulder to lean on",
+
     "020":
         "An hour sounds short until its an hour without you and suddenly it feels like an eternity,every mins feels like hours away from you",
 
     "021":
         "My love for you knows no bounds, I could change every fibre of my being for you, forget hate if you dislike or are annoyed at smth about me INSTANLY GONE if its smth I like? DOES NOT MATTER",
 
-   "022":
+    "022":
         "I want to talk to you forever,comfort you forever,protect you forever,be there for you forever,love you forever I just want you forver",
 
-   "023":
+    "023":
         "GAHH I'M SO JEALOUS OF YOUR KITTIES WHO GET TO SEE YOU ALL THE TIME, THEY'RE LIVING MY DREAM DHASB CJAKN",
 
-   "024":
+    "024":
         "You're genuinely a wish,treasure,miracle blessing all in once. Being able to talk like someone as amazing,loving and sweet like you makes me the luckiest person ever",
 
-   "025":
+    "025":
         "I love all the inside jokes we have,and I love it so much more because only both of us knows it's like our own world",
 
-   "026":
+    "026":
         "One life is not enough to love you,I hope I find you in every life,in every universe and I pray we're close in all of those lives and universes",
 
-   "027":
+    "027":
         "Whenever I see any pair of characters,animals or anything I always associate them with us in any shape INSTANTLY, YOU'RE ALWAYS ON MY MIND",
 
-   "028":
-       "Your voice is so sweet and just really pleasant calming to hear I love all of the vms you send AND I LOVE THE THIS REMINDS ME VMS ABSHCA",
-
-   "029":
+    "028":
         "I could sacrifice everything for you but it'll still feel like I didn't lose anything as long as I have you",
 
-   "030":
-       "I already won the biggest jackpot of my life meeting you, you are my everything everyone all at once",
+    "029":
+        "I already won the biggest jackpot of my life meeting you, you are my everything everyone all at once",
 
-   "031":
-       "My love I want to give you the whole world,you'll always be my priority no matter what happens, my love for you and how I feel about you will never ever change. Until my dying breath,until the Sun explodes, the Earth ceases to exist,until time stops I'll always love you, I'll always be on your side,I'll always trust you with my life,I'll always be there for you,I'll always protect you from anything and everything,I'll always be a warm and comfortable space for you,I'll always come running to you,I'll always choose you in a room filled with everyone I know,I'll always spoil you,I'll always buy you things with what little money I have,I'll always celebrate your wins and comfort you for your losses, I'll be there when you're up high or when you're down low, I'll always love every single part and version of you,I'll be there when you want to talk a lot or when you don't feel like talking,I'll never ever judge you for anything, I'll be there to help you for anything, if its smth I can't help with then I'll learn,I'll be there with every step no matter which step you take, I'll be there to help you through your high school life, I'll always be there for everything and everytime you need me",
+    "030":
+        "I already won the biggest jackpot of my life meeting you, you are my everything everyone all at once",
 
-   "032":
-       "My angel as long as I'm around you will never ever feel alone, you can come to me for absolutely anything,I don't believe in gods but you are ♡my god♡"
+    "031":
+        "My love I want to give you the whole world,you'll always be my priority no matter what happens, my love for you and how I feel about you will never ever change. Until my dying breath,until the Sun explodes, the Earth ceases to exist,until time stops I'll always love you, I'll always be on your side,I'll always trust you with my life,I'll always be there for you,I'll always protect you from anything and everything,I'll always be a warm and comfortable space for you,I'll always come running to you,I'll always choose you in a room filled with everyone I know,I'll always spoil you,I'll always buy you things with what little money I have,I'll always celebrate your wins and comfort you for your losses, I'll be there when you're up high or when you're down low, I'll always love every single part and version of you,I'll be there when you want to talk a lot or when you don't feel like talking,I'll never ever judge you for anything, I'll be there to help you for anything, if its smth I can't help with then I'll learn,I'll be there with every step no matter which step you take, I'll be there to help you through your high school life, I'll always be there for everything and everytime you need me",
+
+    "032":
+        "My angel as long as I'm around you will never ever feel alone, you can come to me for absolutely anything,I don't believe in gods but you are ♡my god♡"
+
 };
+
+
+/* =========================================
+   DISCOVERED MESSAGE TRACKING
+========================================= */
+
+const discoveredMessages = new Set();
+
+const totalMessages = 32;
 
 
 /* =========================================
@@ -206,6 +219,9 @@ const messageText =
 
 const messageNumber =
     document.querySelector(".message-number");
+
+const backButton =
+    document.getElementById("back-button");
 
 
 openButton.addEventListener(
@@ -256,6 +272,29 @@ function openMessage() {
         messageText.textContent = "";
 
 
+        /* Mark this note as discovered */
+
+        discoveredMessages.add(number);
+
+
+        /* Check whether all 32 were found */
+
+        if (
+            discoveredMessages.size ===
+            totalMessages
+        ) {
+
+            backButton.textContent =
+                "Finish ♡";
+
+        } else {
+
+            backButton.textContent =
+                "← find another";
+
+        }
+
+
         numberScreen.classList.remove(
             "active"
         );
@@ -266,17 +305,13 @@ function openMessage() {
             numberScreen.style.display =
                 "none";
 
-
             messageScreen.style.display =
                 "flex";
-
 
             messageScreen.classList.add(
                 "active"
             );
 
-
-            /* Wait for note animation */
 
             setTimeout(function() {
 
@@ -454,16 +489,41 @@ function createNoteHearts() {
 
 
 /* =========================================
-   ← BACK BUTTON
+   ← BACK / FINISH BUTTON
 ========================================= */
-
-const backButton =
-    document.getElementById("back-button");
-
 
 backButton.addEventListener(
     "click",
     function() {
+
+        /*
+           If all 32 messages have been found,
+           this button opens the finish page.
+        */
+
+        if (
+            discoveredMessages.size ===
+            totalMessages
+        ) {
+
+            messageScreen.classList.remove(
+                "active"
+            );
+
+            setTimeout(function() {
+
+                messageScreen.style.display =
+                    "none";
+
+                showFinishScreen();
+
+            }, 400);
+
+            return;
+        }
+
+
+        /* Normal back button */
 
         messageScreen.classList.remove(
             "active"
@@ -475,15 +535,12 @@ backButton.addEventListener(
             messageScreen.style.display =
                 "none";
 
-
             numberScreen.style.display =
                 "flex";
-
 
             numberScreen.classList.add(
                 "active"
             );
-
 
             numberInput.value = "";
 
@@ -682,67 +739,121 @@ openButton.addEventListener(
     }
 );
 
+
 /* =========================================
-   FINISH-UP PAGE
+   ♡ FINISH-UP SCREEN
 ========================================= */
 
 const finishScreen =
-    document.getElementById("finish-screen");
+    document.getElementById(
+        "finish-screen"
+    );
 
 const finishOpenButton =
-    document.getElementById("finish-open-button");
+    document.getElementById(
+        "finish-open-button"
+    );
 
 const finalScreen =
-    document.getElementById("final-screen");
+    document.getElementById(
+        "final-screen"
+    );
 
 const finalHearts =
-    document.getElementById("final-hearts");
+    document.getElementById(
+        "final-hearts"
+    );
 
+
+function showFinishScreen() {
+
+    finishScreen.classList.add(
+        "show"
+    );
+
+}
+
+
+/* =========================================
+   OPEN FINAL PAGE
+========================================= */
 
 finishOpenButton.addEventListener(
     "click",
     function() {
 
-        finishScreen.classList.remove("show");
+        createParticles(this);
 
-        finishScreen.style.display = "none";
+        finishScreen.classList.remove(
+            "show"
+        );
 
-        finalScreen.classList.add("show");
+        setTimeout(function() {
 
-        createFinalHearts();
+            finishScreen.style.display =
+                "none";
+
+            finalScreen.classList.add(
+                "show"
+            );
+
+            createFinalHearts();
+
+        }, 500);
 
     }
 );
 
 
 /* =========================================
-   FINAL FLOATING HEARTS
+   💗 FINAL FLOATING HEARTS
 ========================================= */
 
 function createFinalHearts() {
 
+    /*
+       Creates a continuous stream
+       of floating hearts.
+    */
+
     setInterval(function() {
 
         const heart =
-            document.createElement("span");
+            document.createElement(
+                "span"
+            );
 
-        heart.className = "final-heart";
+
+        heart.className =
+            "final-heart";
+
 
         heart.textContent =
             Math.random() > 0.5
                 ? "♡"
                 : "♥";
 
+
         heart.style.left =
             Math.random() * 100 + "%";
 
+
         heart.style.fontSize =
-            25 + Math.random() * 60 + "px";
+            25 +
+            Math.random() * 60 +
+            "px";
+
 
         heart.style.animationDuration =
-            5 + Math.random() * 5 + "s";
+            5 +
+            Math.random() * 5 +
+            "s";
 
-        finalHearts.appendChild(heart);
+
+        finalHearts.appendChild(
+            heart
+        );
+
 
         setTimeout(function() {
 
@@ -751,4 +862,5 @@ function createFinalHearts() {
         }, 11000);
 
     }, 250);
+
 }
