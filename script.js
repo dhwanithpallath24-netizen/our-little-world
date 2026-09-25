@@ -681,3 +681,74 @@ openButton.addEventListener(
 
     }
 );
+
+/* =========================================
+   FINISH-UP PAGE
+========================================= */
+
+const finishScreen =
+    document.getElementById("finish-screen");
+
+const finishOpenButton =
+    document.getElementById("finish-open-button");
+
+const finalScreen =
+    document.getElementById("final-screen");
+
+const finalHearts =
+    document.getElementById("final-hearts");
+
+
+finishOpenButton.addEventListener(
+    "click",
+    function() {
+
+        finishScreen.classList.remove("show");
+
+        finishScreen.style.display = "none";
+
+        finalScreen.classList.add("show");
+
+        createFinalHearts();
+
+    }
+);
+
+
+/* =========================================
+   FINAL FLOATING HEARTS
+========================================= */
+
+function createFinalHearts() {
+
+    setInterval(function() {
+
+        const heart =
+            document.createElement("span");
+
+        heart.className = "final-heart";
+
+        heart.textContent =
+            Math.random() > 0.5
+                ? "♡"
+                : "♥";
+
+        heart.style.left =
+            Math.random() * 100 + "%";
+
+        heart.style.fontSize =
+            25 + Math.random() * 60 + "px";
+
+        heart.style.animationDuration =
+            5 + Math.random() * 5 + "s";
+
+        finalHearts.appendChild(heart);
+
+        setTimeout(function() {
+
+            heart.remove();
+
+        }, 11000);
+
+    }, 250);
+}
