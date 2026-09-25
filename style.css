@@ -392,8 +392,762 @@ h1 {
 .instruction {
     font-family: "Caveat", cursive;
 
-    font-size: 2
+    font-size: 24px;
+
+    color: #a66580;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 25px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #e5afc1
+        );
+}
+
+.divider::after {
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            #e5afc1
+        );
+}
+
+.divider span {
+    color: #d87599;
+
+    font-size: 17px;
+}
+
+
+/* =========================================
+   LABELS
+========================================= */
+
+label {
+    display: block;
+
+    font-size: 13px;
+
+    color: #a96880;
+
+    margin-bottom: 9px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+input {
+    width: 100%;
+
+    padding: 14px 18px;
+
+    border-radius: 15px;
+
+    border:
+        1px solid #efc4d3;
+
+    background:
+        rgba(255, 255, 255, 0.8);
+
+    outline: none;
+
+    text-align: center;
+
+    font-family: "Quicksand", sans-serif;
+
+    font-size: 15px;
+
+    color: #805064;
+
+    transition:
+        border 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+input::placeholder {
+    color: #d3a0b2;
+}
+
+input:focus {
+    border-color: #d98da8;
+
+    box-shadow:
+        0 0 0 4px rgba(216, 117, 153, 0.1);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button {
+    border: none;
+
+    cursor: pointer;
+}
+
+#enter-button,
+#open-button {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 14px 20px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d87599,
+            #e99db7
+        );
+
+    color: white;
+
+    font-family: "Quicksand", sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    box-shadow:
+        0 10px 25px rgba(210, 117, 153, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+#enter-button:hover,
+#open-button:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 15px 30px rgba(210, 117, 153, 0.32);
+}
+
+#enter-button:active,
+#open-button:active {
+    transform:
+        scale(0.96);
+}
+
+#enter-button span,
+#open-button span {
+    margin: 0 6px;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.error-message {
+    min-height: 22px;
+
+    margin-top: 13px;
+
+    font-size: 12px;
+
+    color: #c56f8d;
+
+    font-weight: 500;
+}
+
+.error-message:not(:empty) {
+    animation:
+        errorShake 0.4s ease;
+}
+
+
+@keyframes errorShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+
+/* =====================================================
+   💌 ENVELOPE SCREEN
+===================================================== */
+
+#message-screen {
+    overflow: hidden;
+
+    background: transparent;
+}
+
+
+/* Container */
+
+.envelope-wrapper {
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    perspective: 1200px;
+
+    padding-top: 100px;
+}
+
+
+/* =====================================================
+   ENVELOPE
+===================================================== */
+
+.envelope {
+    position: relative;
+
+    width: 390px;
+
+    height: 270px;
+
+    margin-bottom: 35px;
+
+    transform-style: preserve-3d;
+
+    filter:
+        drop-shadow(
+            0 20px 25px rgba(170, 85, 120, 0.2)
+        );
+}
+
+
+/* Envelope body */
+
+.envelope-back {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        #fffafc;
+
+    border:
+        2px solid #edc1d1;
+
+    border-radius: 10px;
+
+    z-index: 1;
+}
+
+
+/* =====================================================
+   PAPER LETTER
+===================================================== */
+
+.letter {
+    position: absolute;
+
+    left: 18px;
+
+    right: 18px;
+
+    bottom: 12px;
+
+    height: 245px;
+
+    background:
+        #fffdfb;
+
+    border:
+        1px solid #f0dfe5;
+
+    border-radius: 6px;
+
+    z-index: 2;
+
+    transform:
+        translateY(0);
+
+    transition:
+        transform 1.2s cubic-bezier(
+            .2,
+            .8,
+            .2,
+            1
+        );
+
+    box-shadow:
+        0 8px 20px rgba(150, 80, 110, 0.15);
+}
+
+
+/* Paper texture */
+
+.letter::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 29px,
+            rgba(220, 170, 190, 0.12) 30px
+        );
+}
+
+
+/* Letter contents */
+
+.letter-content {
+    position: relative;
+
+    z-index: 2;
+
+    height: 100%;
+
+    padding: 28px 25px;
+
+    text-align: center;
+
+    overflow-y: auto;
+}
+
+
+/* =====================================================
+   ENVELOPE FRONT
+===================================================== */
+
+.envelope-front {
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    height: 62%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8d7e3,
+            #efc0d1
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 55%,
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+
+    border-radius:
+        0 0 10px 10px;
+
+    z-index: 4;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.7);
+}
+
+
+/* =====================================================
+   ENVELOPE FLAP
+===================================================== */
+
+.envelope-flap {
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 62%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fbe1e9,
+            #f0c5d5
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    transform-origin:
+        top center;
+
+    transition:
+        transform 1s cubic-bezier(
+            .2,
+            .8,
+            .2,
+            1
+        );
+
+    z-index: 5;
+
+    filter:
+        drop-shadow(
+            0 4px 4px rgba(170, 90, 120, 0.12)
+        );
+}
+
+
+/* =====================================================
+   OPENING ANIMATION
+===================================================== */
+
+.envelope.open
+.envelope-flap {
+    transform:
+        rotateX(180deg);
+
+    z-index: 0;
+}
+
+
+.envelope.open
+.letter {
+    transform:
+        translateY(-205px);
+
+    z-index: 6;
+}
+
+
+/* =====================================================
+   LETTER TEXT
+===================================================== */
+
+.letter-decoration {
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size: 30px;
+
+    color: #d87599;
+
+    margin-bottom: 4px;
+
+    animation:
+        tinyHeart 2s ease-in-out infinite;
+}
+
+
+.message-number {
+    font-family:
+        "Quicksand",
+        sans-serif;
+
+    font-size: 12px;
+
+    color: #c98ba3;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 12px;
+}
+
+
+.little-line {
+    width: 50px;
+
+    height: 2px;
+
+    margin:
+        0 auto 20px;
+
+    background:
+        #e8a9bd;
+
+    border-radius: 10px;
+}
+
+
+.message-text {
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size: 30px;
+
+    line-height: 1.45;
+
+    color: #805064;
+
+    min-height: 90px;
+
+    margin: 0 auto;
+}
+
+
+.message-bottom {
+    margin-top: 15px;
+
+    color: #d87599;
+
+    font-size: 22px;
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-button {
+    position: relative;
+
+    z-index: 20;
+
+    background:
+        rgba(255, 255, 255, 0.85);
+
+    color: #b76b88;
+
+    font-family:
+        "Quicksand",
+        sans-serif;
+
+    font-size: 14px;
+
+    padding:
+        11px 20px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 8px 20px rgba(180, 90, 125, 0.12);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.back-button:hover {
+    transform:
+        translateY(-3px);
+
+    background:
+        white;
+
+    box-shadow:
+        0 12px 25px rgba(180, 90, 125, 0.2);
+}
+
+
+.back-button:active {
+    transform:
+        scale(0.95);
+}
+
+
+/* =====================================================
+   HEART ANIMATION
+===================================================== */
+
+@keyframes tinyHeart {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.18);
+    }
+}
+
+
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
+
+.music-button {
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.85);
+
+    color: #c87594;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(190, 100, 135, 0.15);
+
+    backdrop-filter:
+        blur(10px);
+
+    z-index: 100;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.music-button:hover {
+    transform:
+        scale(1.1);
+
+    box-shadow:
+        0 10px 30px rgba(190, 100, 135, 0.25);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .screen {
+        padding: 20px;
+    }
+
+
+    .main-card {
+        padding:
+            35px 25px 28px;
+
+        border-radius: 24px;
+    }
+
+
+    h1 {
+        font-size: 42px;
+    }
+
+
+    .envelope-wrapper {
+        padding-top: 80px;
+    }
+
+
+    .envelope {
+        width: 310px;
+
+        height: 215px;
+    }
+
+
+    .letter {
+        left: 15px;
+
+        right: 15px;
+
+        height: 195px;
+    }
+
+
+    .letter-content {
+        padding:
+            20px 16px;
+    }
+
+
+    .message-text {
+        font-size: 25px;
+    }
+
+
+    .envelope.open
+    .letter {
+        transform:
+            translateY(-155px);
+    }
+
+
+    .music-button {
+        width: 44px;
+
+        height: 44px;
+
+        right: 18px;
+
+        bottom: 18px;
+    }
+
+}
 ```
-
-
 
